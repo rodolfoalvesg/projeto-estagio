@@ -40,7 +40,7 @@ func Convert(qtd, price string) int {
 
 	sub := int(intQtd * intPrice)
 
-	return sub // retorna total da multiplicacao da quantidade pelo valor do item
+	return sub
 }
 
 // Função verifica se existe email repetido
@@ -60,6 +60,7 @@ func (d Dicionario) CalcList(valor ShopList, email ListEmails) Dicionario {
 
 	teste := false
 
+	// Veririca se existe email repetido
 	for _, value := range email {
 		if EmailRepetido(email, value) > 1 {
 			teste = true
@@ -67,12 +68,12 @@ func (d Dicionario) CalcList(valor ShopList, email ListEmails) Dicionario {
 		}
 	}
 
+	// valida a verificação anterior
 	if teste == false {
-
-		soma := 0 // inicializador de soma
+		soma := 0
 		for _, value := range valor {
 			soma += Convert(value[1], value[2])
-		} // itera VALOR que é do tipo ShopLista e contem todos os itens da lista
+		}
 
 		resto := (soma % len(email)) - 1
 		divisao := soma / len(email)
@@ -85,14 +86,14 @@ func (d Dicionario) CalcList(valor ShopList, email ListEmails) Dicionario {
 				d[value] = strconv.Itoa(divisao + 1)
 			}
 
-		} // itera EMAIL que é do tipo ListEmails e contem todos os emails da lista
+		}
 
 		return d
 	} else {
 		fmt.Printf("existe um email repetido \n")
 		return d
 	}
-	// receptor que contém a lista de usuários e os valores atribuídos
+
 }
 
 // Funcão principal com a chamada de teste
