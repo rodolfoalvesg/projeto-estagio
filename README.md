@@ -1,7 +1,7 @@
 ## Aplicação em go
 
 # Funciões e testes
-1 - A aplicação recebe duas listas: 1 multdiimensão com a LISTA DE PRODUTOS e 1 Unidimensional com a LISTA DE EMAILS
+1 - A aplicação recebe duas listas: 1 multdiimensão com a LISTA DE PRODUTOS e 1 Unidimensional com a LISTA DE EMAILS.<br />
 2 - Na funcção principal existe a chamada da função com uma VALIDAÇÃO CONDICIONAL para caso a lista de email esteja VAZIA a função NÃO seja executada.<br />
 3 - Caso a condição dois, seja satisfeita, a função é executada e novamente é executada uma VALIDAÇÃO CONDICIONAL verificando se existe email REPETIDO. Caso
 haja, a função é encereda retornando o MAP VAZIO com a mensangem de ERRO.<br />
