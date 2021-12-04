@@ -27,7 +27,7 @@ var (
 	EmailsList = ListEmails{
 		"teste1@teste.com",
 		"teste2@teste.com",
-		"teste3@teste.com",
+		"",
 		"teste4@teste.com",
 		"teste5@teste.com",
 	}
@@ -41,18 +41,6 @@ func Convert(qtd, price string) int {
 	sub := int(intQtd * intPrice)
 
 	return sub
-}
-
-// Função verifica se existe email repetido
-func EmailRepetido(email ListEmails, emailTest string) int {
-	soma := 0
-	for _, value := range email {
-
-		if value == emailTest {
-			soma++
-		}
-	}
-	return soma
 }
 
 //  Método para calcular a soma do Valor total e a divisão por usuários
@@ -96,15 +84,40 @@ func (d Dicionario) CalcList(valor ShopList, email ListEmails) Dicionario {
 
 }
 
+// Função verifica se existe email repetido
+func EmailRepetido(email ListEmails, emailTest string) int {
+	soma := 0
+	for _, value := range email {
+
+		if value == emailTest {
+			soma++
+		}
+	}
+	return soma
+}
+
+/* Verificação se existe Posições na lista de email vazias*/
+func VerificaPosicaoVazia() bool {
+
+	vazio := false
+	for _, value := range EmailsList {
+		if value == "" {
+			vazio = true
+			return vazio
+		}
+	}
+	return vazio
+}
+
 // Funcão principal com a chamada de teste
 func main() {
 
-	if len(EmailsList) != 0 {
+	if (len(EmailsList) != 0) && (VerificaPosicaoVazia() != true) {
 		lislando := dicionario.CalcList(MyList, EmailsList)
 		fmt.Printf("Dicionário: '%v'\n", lislando)
 
 	} else {
-		fmt.Printf("A lista de e-mail está vazia. Deve haver pelo menos um valor")
+		fmt.Printf("\nA lista de e-mail está vazia ou existe uma posição com valor vazio\n")
 	}
 
 }
