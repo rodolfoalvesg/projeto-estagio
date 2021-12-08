@@ -52,7 +52,6 @@ func (d Dicionario) CalcList(valor ShopList, email ListEmails) Dicionario {
 	for _, value := range email {
 		if EmailRepetido(email, value) > 1 {
 			teste = true
-			break
 		}
 	}
 
@@ -103,7 +102,6 @@ func VerificaPosicaoVazia() bool {
 	for _, value := range EmailsList {
 		if value == "" {
 			vazio = true
-			return vazio
 		}
 	}
 	return vazio
