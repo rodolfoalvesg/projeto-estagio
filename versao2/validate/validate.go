@@ -17,20 +17,16 @@ func repeateEmail(email []string, value string) bool {
 
 // Verificação de email vazio
 func ValidateEntries(emails []string) bool {
-	empty := false
-	repeated := false
-
 	for _, entry := range emails {
+
 		if repeateEmail(emails, entry) {
-			repeated = true
-			return repeated
+			return true
 		}
 
 		if entry == "" {
-			empty = true
-			return empty
+			return true
 		}
 	}
 
-	return empty
+	return false
 }
