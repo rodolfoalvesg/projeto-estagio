@@ -34,10 +34,19 @@ var emails = []string{
 }
 
 func TestListCalculator(t *testing.T) {
-	got := ListCalculator(items, emails)
-	want := Dictionary{}
 
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("got %#v, want %#v", got, want)
-	}
+	t.Run("atribui", func(t *testing.T) {
+		valuePerPerson := 1000
+		remaining := 1
+		got := addedValuesUser(valuePerPerson, remaining, emails)
+		want := Dictionary{
+			"teste1@teste.com": 1001,
+			"teste2@teste.com": 1000,
+			"teste3@teste.com": 1000,
+		}
+
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %v, want %v", got, want)
+		}
+	})
 }
