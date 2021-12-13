@@ -1,0 +1,12 @@
+mode: set
+modulo/validate/validate.go:4.54,7.30 2 1
+modulo/validate/validate.go:15.2,15.14 1 1
+modulo/validate/validate.go:7.30,8.21 1 1
+modulo/validate/validate.go:8.21,10.15 2 1
+modulo/validate/validate.go:10.15,12.5 1 1
+modulo/validate/validate.go:19.44,20.31 1 1
+modulo/validate/validate.go:31.2,31.14 1 1
+modulo/validate/validate.go:20.31,22.34 1 1
+modulo/validate/validate.go:26.3,26.18 1 1
+modulo/validate/validate.go:22.34,24.4 1 1
+modulo/validate/validate.go:26.18,28.4 1 0
