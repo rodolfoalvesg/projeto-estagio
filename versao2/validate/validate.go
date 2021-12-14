@@ -5,17 +5,17 @@ type Emails interface {
 }
 
 type EmailsList struct {
-	emails []string
+	Emails []string
 }
 
 // validação de email repetido ou campo vazio
 func (e EmailsList) ValidateEntries() bool {
 
-	teste := map[string]string{}
+	emailRepeated := map[string]string{}
 
-	for _, entry := range e.emails {
-		if _, ok := teste[entry]; !ok {
-			teste[entry] = ""
+	for _, entry := range e.Emails {
+		if _, ok := emailRepeated[entry]; !ok {
+			emailRepeated[entry] = ""
 		} else {
 			return true
 		}

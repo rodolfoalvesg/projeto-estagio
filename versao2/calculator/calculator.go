@@ -9,12 +9,12 @@ type Dictionary map[string]uint
 var dictionary = Dictionary{}
 
 // Distribui os valores e emails num dicionário
-func addedValuesUser(v1, v2 int, email []string) Dictionary {
+func addedValuesUser(valuePerPerson, remaining int, email []string) Dictionary {
 	for i, value := range email {
-		if v2 <= i {
-			dictionary[value] = uint(v1)
+		if remaining <= i {
+			dictionary[value] = uint(valuePerPerson)
 		} else {
-			dictionary[value] = uint(v1 + 1)
+			dictionary[value] = uint(valuePerPerson + 1)
 		}
 	}
 
@@ -30,7 +30,7 @@ func ListCalculator(items []list.ListItens, emails []string) Dictionary {
 		sum += (int(value.Price) * int(value.Amount))
 	}
 	valuePerson := sum / len(emails)
-	remnant := sum % len(emails)
+	remaining := sum % len(emails)
 
-	return addedValuesUser(valuePerson, remnant, emails)
+	return addedValuesUser(valuePerson, remaining, emails)
 }

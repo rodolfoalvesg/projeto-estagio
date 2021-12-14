@@ -46,6 +46,7 @@ var baseItens = []ListItens{
 
 var baseEmails = []string{"teste1@teste.com", "teste2@teste.com", "teste3@teste.com", "teste4@teste.com"}
 
+// Lista de Itens e Emails
 func List() ([]ListItens, []string) {
 	return baseItens, baseEmails
 }
