@@ -1,25 +1,22 @@
 package validate
 
-// Verificação de email repetido
-func repeateEmail(email []string, value string) bool {
-	sum := 0
-
-	for _, entry := range email {
-		if value == entry {
-			sum++
-			if sum > 1 {
-				return true
-			}
-		}
-	}
-	return false
+type Emails interface {
+	ValidateEntries() bool
 }
 
-// Verificação de email vazio
-func ValidateEntries(emails []string) bool {
-	for _, entry := range emails {
+type EmailsList struct {
+	emails []string
+}
 
-		if repeateEmail(emails, entry) {
+// validação de email repetido ou campo vazio
+func (e EmailsList) ValidateEntries() bool {
+
+	teste := map[string]string{}
+
+	for _, entry := range e.emails {
+		if _, ok := teste[entry]; !ok {
+			teste[entry] = ""
+		} else {
 			return true
 		}
 
@@ -27,6 +24,5 @@ func ValidateEntries(emails []string) bool {
 			return true
 		}
 	}
-
 	return false
 }
