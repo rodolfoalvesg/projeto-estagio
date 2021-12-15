@@ -26,7 +26,7 @@ func TestValidateEmail(t *testing.T) {
 		"teste3@teste.com",
 	}
 
-	testeValidate := map[string]struct {
+	testValidate := map[string]struct {
 		emails Emails
 		want   bool
 	}{
@@ -35,15 +35,11 @@ func TestValidateEmail(t *testing.T) {
 		"Email vazio": {EmailsList{emailsC}, true},
 	}
 
-	t.Run("E-mail Ok", func(t *testing.T) {
-
-		for name, tt := range testeValidate {
-			got := tt.emails.ValidateEntries()
-			if got != tt.want {
-				t.Errorf("%s:  got %v, want %v", name, got, tt.want)
-			}
+	for name, tt := range testValidate {
+		got := tt.emails.ValidateEntries()
+		if got != tt.want {
+			t.Errorf("%s:  got %v, want %v", name, got, tt.want)
 		}
-
-	})
+	}
 
 }
