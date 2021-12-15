@@ -33,18 +33,37 @@ var emails = []string{
 }
 
 func TestAddedValuesUser(t *testing.T) {
-	valuePerPerson := 1000
-	remaining := 1
 
-	got := addedValuesUser(valuePerPerson, remaining, emails)
-	want := Dictionary{
-		"teste1@teste.com": 1001,
-		"teste2@teste.com": 1000,
-		"teste3@teste.com": 1000,
+	testCalculator := map[string]struct {
+		valuePerPerson int
+		remaining      int
+		want           Dictionary
+	}{
+		"Teste Padrão": {
+			valuePerPerson: 2000,
+			remaining:      0,
+			want: Dictionary{
+				"teste1@teste.com": 2000,
+				"teste2@teste.com": 2000,
+				"teste3@teste.com": 2000,
+			},
+		},
+		"Teste com Resto": {
+			valuePerPerson: 1500,
+			remaining:      2,
+			want: Dictionary{
+				"teste1@teste.com": 1501,
+				"teste2@teste.com": 1501,
+				"teste3@teste.com": 1500,
+			},
+		},
 	}
 
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("got %v, want %v", got, want)
+	for name, tt := range testCalculator {
+		got := addedValuesUser(tt.valuePerPerson, tt.remaining, emails)
+		if !reflect.DeepEqual(got, tt.want) {
+			t.Errorf("%s: ,got %v, want %v", name, got, tt.want)
+		}
 	}
 
 }

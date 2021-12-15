@@ -1,9 +1,9 @@
 mode: set
-modulo/calculator/calculator.go:12.61,13.30 1 1
+modulo/calculator/calculator.go:12.80,13.30 1 1
 modulo/calculator/calculator.go:21.2,21.19 1 1
-modulo/calculator/calculator.go:13.30,14.14 1 1
-modulo/calculator/calculator.go:14.14,16.4 1 1
+modulo/calculator/calculator.go:13.30,14.21 1 1
+modulo/calculator/calculator.go:14.21,16.4 1 1
 modulo/calculator/calculator.go:16.9,18.4 1 1
 modulo/calculator/calculator.go:27.73,29.30 2 1
-modulo/calculator/calculator.go:32.2,35.54 3 1
+modulo/calculator/calculator.go:32.2,35.56 3 1
 modulo/calculator/calculator.go:29.30,31.3 1 1
