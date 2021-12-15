@@ -26,21 +26,21 @@ func TestValidateEmail(t *testing.T) {
 		"teste3@teste.com",
 	}
 
-	testeValidate := []struct {
+	testeValidate := map[string]struct {
 		emails Emails
 		want   bool
 	}{
-		{EmailsList{emailsA}, false},
-		{EmailsList{emailsB}, true},
-		{EmailsList{emailsC}, true},
+		"Correto":     {EmailsList{emailsA}, false},
+		"Email duplo": {EmailsList{emailsB}, true},
+		"Email vazio": {EmailsList{emailsC}, true},
 	}
 
 	t.Run("E-mail Ok", func(t *testing.T) {
 
-		for _, tt := range testeValidate {
+		for name, tt := range testeValidate {
 			got := tt.emails.ValidateEntries()
 			if got != tt.want {
-				t.Errorf("got %v, want %v", got, tt.want)
+				t.Errorf("%s:  got %v, want %v", name, got, tt.want)
 			}
 		}
 
