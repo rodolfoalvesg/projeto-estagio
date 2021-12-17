@@ -1,9 +1,5 @@
 package validate
 
-type Emails interface {
-	ValidateEntries() bool
-}
-
 type EmailsList struct {
 	Emails []string
 }

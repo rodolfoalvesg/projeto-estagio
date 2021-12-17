@@ -1,9 +1,10 @@
 package calculator
 
 import (
-	"modulo/list"
 	"reflect"
 	"testing"
+
+	"github.com/rodolfoalvesg/projeto-estagio/versao2/list"
 )
 
 var items = []list.ListItens{
@@ -37,12 +38,12 @@ func TestAddedValuesUser(t *testing.T) {
 	testCalculator := map[string]struct {
 		valuePerPerson int
 		remaining      int
-		want           Dictionary
+		want           TotalPerClient
 	}{
 		"Teste Padrão": {
 			valuePerPerson: 2000,
 			remaining:      0,
-			want: Dictionary{
+			want: TotalPerClient{
 				"teste1@teste.com": 2000,
 				"teste2@teste.com": 2000,
 				"teste3@teste.com": 2000,
@@ -51,7 +52,7 @@ func TestAddedValuesUser(t *testing.T) {
 		"Teste com Resto": {
 			valuePerPerson: 1500,
 			remaining:      2,
-			want: Dictionary{
+			want: TotalPerClient{
 				"teste1@teste.com": 1501,
 				"teste2@teste.com": 1501,
 				"teste3@teste.com": 1500,
@@ -70,7 +71,7 @@ func TestAddedValuesUser(t *testing.T) {
 
 func TestLisCalculator(t *testing.T) {
 	got := ListCalculator(items, emails)
-	want := Dictionary{
+	want := TotalPerClient{
 		"teste1@teste.com": 1001,
 		"teste2@teste.com": 1001,
 		"teste3@teste.com": 1000,

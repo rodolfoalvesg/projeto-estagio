@@ -27,7 +27,7 @@ func TestValidateEmail(t *testing.T) {
 	}
 
 	testValidate := map[string]struct {
-		emails Emails
+		emails EmailsList
 		want   bool
 	}{
 		"Correto":     {EmailsList{emailsA}, false},

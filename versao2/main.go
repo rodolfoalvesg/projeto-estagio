@@ -2,15 +2,16 @@ package main
 
 import (
 	"fmt"
-	"modulo/calculator"
-	"modulo/list"
-	"modulo/validate"
+
+	"github.com/rodolfoalvesg/projeto-estagio/versao2/calculator"
+	"github.com/rodolfoalvesg/projeto-estagio/versao2/list"
+	"github.com/rodolfoalvesg/projeto-estagio/versao2/validate"
 )
 
 func main() {
 	items, emails := list.List() // recebendo a lista de ITENS e EMAILS
 
-	if (len(emails) != 0) && validate.Emails.ValidateEntries(validate.EmailsList{Emails: emails}) != true {
+	if (len(emails) != 0) && validate.EmailsList.ValidateEntries(validate.EmailsList{emails}) != true {
 		fmt.Println("--------- MAPA DE VALORES --------")
 		listSales := calculator.ListCalculator(items, emails) // Passando as listas para as funções de calculo
 

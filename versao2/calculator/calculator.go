@@ -1,30 +1,30 @@
 package calculator
 
 import (
-	"modulo/list"
+	"github.com/rodolfoalvesg/projeto-estagio/versao2/list"
 )
 
-type Dictionary map[string]uint
+type TotalPerClient map[string]uint
 
-var dictionary = Dictionary{}
+var clienteAndValues = TotalPerClient{}
 
 // Distribui os valores e emails num dicionário
-func addedValuesUser(valuePerPerson, remaining int, email []string) Dictionary {
+func addedValuesUser(valuePerPerson, remaining int, email []string) TotalPerClient {
 	for i, value := range email {
 		if remaining <= i {
-			dictionary[value] = uint(valuePerPerson)
+			clienteAndValues[value] = uint(valuePerPerson)
 		} else {
-			dictionary[value] = uint(valuePerPerson + 1)
+			clienteAndValues[value] = uint(valuePerPerson + 1)
 		}
 	}
 
-	return dictionary
+	return clienteAndValues
 
 }
 
 // Realiza o subcalculo da QTD x VALOR em seguida chama a função AddedValuesUser() para distribuir
 // Os valores num dicionario
-func ListCalculator(items []list.ListItens, emails []string) Dictionary {
+func ListCalculator(items []list.ListItens, emails []string) TotalPerClient {
 	sum := 0
 	for _, value := range items {
 		sum += (int(value.Price) * int(value.Amount))
