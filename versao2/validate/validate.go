@@ -1,15 +1,13 @@
 package validate
 
-type EmailsList struct {
-	Emails []string
-}
+type Emails []string
 
 // validação de email repetido ou campo vazio
-func (e EmailsList) ValidateEntries() bool {
+func (e Emails) Validate() bool {
 
-	emailRepeated := make(map[string]struct{}, len(e.Emails))
+	emailRepeated := make(map[string]struct{}, len(e))
 
-	for _, entry := range e.Emails {
+	for _, entry := range e {
 		if _, ok := emailRepeated[entry]; ok {
 			return true
 		}

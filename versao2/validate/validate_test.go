@@ -27,16 +27,16 @@ func TestValidateEmail(t *testing.T) {
 	}
 
 	testValidate := map[string]struct {
-		emails EmailsList
+		emails Emails
 		want   bool
 	}{
-		"Correto":     {EmailsList{emailsA}, false},
-		"Email duplo": {EmailsList{emailsB}, true},
-		"Email vazio": {EmailsList{emailsC}, true},
+		"Correto":     {emailsA, false},
+		"Email duplo": {emailsB, true},
+		"Email vazio": {emailsC, true},
 	}
 
 	for name, tt := range testValidate {
-		got := tt.emails.ValidateEntries()
+		got := tt.emails.Validate()
 		if got != tt.want {
 			t.Errorf("%s:  got %v, want %v", name, got, tt.want)
 		}
