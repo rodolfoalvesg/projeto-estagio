@@ -11,7 +11,7 @@ import (
 func main() {
 	items, emails := list.List() // recebendo a lista de ITENS e EMAILS
 
-	if (len(emails) != 0) && validate.EmailsList.ValidateEntries(validate.EmailsList{emails}) != true {
+	if (len(emails) != 0) && validate.Emails.Validate(emails) != true {
 		fmt.Println("--------- MAPA DE VALORES --------")
 		listSales := calculator.ListCalculator(items, emails) // Passando as listas para as funções de calculo
 

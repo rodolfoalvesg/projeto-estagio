@@ -17,12 +17,7 @@ func addedValuesToUser(valuePerPerson, remaining int, email []string) TotalPerCl
 		}
 	}
 
-	// for i := 0; i < remaining; i++ {
-	// 	clienteAndValues[email[i]] += 1
-	// }
-
 	return clienteAndValues
-
 }
 
 // Realiza o subcalculo da QTD x VALOR em seguida chama a função AddedValuesUser() para distribuir
