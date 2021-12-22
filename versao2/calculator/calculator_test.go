@@ -61,7 +61,7 @@ func TestAddedValuesUser(t *testing.T) {
 	}
 
 	for name, tt := range testCalculator {
-		got := addedValuesUser(tt.valuePerPerson, tt.remaining, emails)
+		got := addedValuesToUser(tt.valuePerPerson, tt.remaining, emails)
 		if !reflect.DeepEqual(got, tt.want) {
 			t.Errorf("%s: ,got %v, want %v", name, got, tt.want)
 		}

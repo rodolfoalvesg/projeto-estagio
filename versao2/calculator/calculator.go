@@ -9,14 +9,17 @@ type TotalPerClient map[string]uint
 var clienteAndValues = TotalPerClient{}
 
 // Distribui os valores e emails num dicionário
-func addedValuesUser(valuePerPerson, remaining int, email []string) TotalPerClient {
+func addedValuesToUser(valuePerPerson, remaining int, email []string) TotalPerClient {
 	for i, value := range email {
-		if remaining <= i {
-			clienteAndValues[value] = uint(valuePerPerson)
-		} else {
-			clienteAndValues[value] = uint(valuePerPerson + 1)
+		clienteAndValues[value] = uint(valuePerPerson)
+		if remaining > i {
+			clienteAndValues[value] += 1
 		}
 	}
+
+	// for i := 0; i < remaining; i++ {
+	// 	clienteAndValues[email[i]] += 1
+	// }
 
 	return clienteAndValues
 
@@ -32,5 +35,5 @@ func ListCalculator(items []list.ListItens, emails []string) TotalPerClient {
 	valuePerson := sum / len(emails)
 	remaining := sum % len(emails)
 
-	return addedValuesUser(valuePerson, remaining, emails)
+	return addedValuesToUser(valuePerson, remaining, emails)
 }
