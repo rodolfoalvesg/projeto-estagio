@@ -1,8 +1,6 @@
-package calculator
+package accounts_calculator
 
-import (
-	"github.com/rodolfoalvesg/projeto-estagio/versao2/list"
-)
+import "github.com/rodolfoalvesg/projeto-estagio/versao3/lists"
 
 type TotalPerClient map[string]uint
 
@@ -21,7 +19,7 @@ func addedValuesToUser(valuePerPerson, remaining int, email []string) TotalPerCl
 }
 
 // Realiza o subcalculo da QTD x VALOR em seguida chama a função AddedValuesUser() para distribuir Os valores num dicionario
-func ListCalculator(items []list.ListItens, emails []string) TotalPerClient {
+func ListCalculator(items []lists.ListItens, emails []string) TotalPerClient {
 	sum := 0
 	for _, value := range items {
 		sum += (int(value.Price) * int(value.Amount))

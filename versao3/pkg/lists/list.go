@@ -1,4 +1,4 @@
-package list
+package lists
 
 type ListItens struct {
 	Item, Spec    string
