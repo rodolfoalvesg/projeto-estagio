@@ -27,7 +27,7 @@ var BaseItens = []ListItens{
 	{
 		Item:   "Óleo",
 		Amount: 1,
-		Price:  255,
+		Price:  253,
 		Spec:   "UNI",
 	},
 	{

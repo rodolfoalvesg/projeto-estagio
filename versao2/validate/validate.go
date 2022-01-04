@@ -1,6 +1,7 @@
 package validate
 
 type Emails []string
+type App []string
 
 // validação de email repetido ou campo vazio
 func (e Emails) Validate() bool {
