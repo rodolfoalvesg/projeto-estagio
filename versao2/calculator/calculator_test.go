@@ -61,7 +61,8 @@ func TestAddedValuesUser(t *testing.T) {
 	}
 
 	for name, tt := range testCalculator {
-		got := addedValuesToUser(tt.valuePerPerson, tt.remaining, emails)
+		most := RemainingForMost{tt.valuePerPerson, tt.remaining, emails}
+		got := most.AddedValuesToUser()
 		if !reflect.DeepEqual(got, tt.want) {
 			t.Errorf("%s: ,got %v, want %v", name, got, tt.want)
 		}
@@ -70,13 +71,12 @@ func TestAddedValuesUser(t *testing.T) {
 }
 
 func TestLisCalculator(t *testing.T) {
-	got := ListCalculator(items, emails)
-	want := TotalPerClient{
-		"teste1@teste.com": 1001,
-		"teste2@teste.com": 1001,
-		"teste3@teste.com": 1000,
+	got1, got2 := ListCalculator(items, emails)
+	want1, want2 := 1000, 2
+	if !reflect.DeepEqual(got1, want1) {
+		t.Errorf("got %v, want %v", got1, want1)
 	}
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("got %v, want %v", got, want)
+	if !reflect.DeepEqual(got2, want2) {
+		t.Errorf("got %v, want %v", got2, want2)
 	}
 }

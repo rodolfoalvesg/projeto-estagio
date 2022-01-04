@@ -4,9 +4,9 @@ import (
 	"github.com/rodolfoalvesg/projeto-estagio/versao2/list"
 )
 
-type totalPerClient map[string]uint
+type TotalPerClient map[string]uint
 
-var clienteAndValues = totalPerClient{}
+var clienteAndValues = TotalPerClient{}
 
 type ValueDistribuitor interface {
 	AddedValuesToUser() map[string]uint
@@ -25,7 +25,7 @@ type RemainingForOne struct {
 }
 
 // Distribui os valores e emails num dicionário e o resto para MUITOS
-func (r RemainingForMost) AddedValuesToUser() totalPerClient {
+func (r RemainingForMost) AddedValuesToUser() TotalPerClient {
 	for i, value := range r.Email {
 		clienteAndValues[value] = uint(r.ValuePerPerson)
 		if r.Remaining > i {
@@ -37,7 +37,7 @@ func (r RemainingForMost) AddedValuesToUser() totalPerClient {
 }
 
 // Distribui os valores e emails num dicionario e o resto para UM
-func (r RemainingForOne) AddedValuesToUser() totalPerClient {
+func (r RemainingForOne) AddedValuesToUser() TotalPerClient {
 	for i, value := range r.Email {
 		clienteAndValues[value] = uint(r.ValuePerPerson)
 		if i == len(r.Email)-1 {
